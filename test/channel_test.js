@@ -2,9 +2,9 @@ var Channel = require('../channel' );
 var assert = require('assert');
 var should = require('should');
 
-describe( Channel, function() {
+describe( "Channel", function() {
 
-  it ( 'percolate reads through the pipeline', function(done) {
+  it ( 'should percolate reads through the pipeline', function(done) {
     var c = new Channel();
 
     c.pipeline.addLast( 'a', {
@@ -28,7 +28,7 @@ describe( Channel, function() {
     c.fireChannelRead( "howdy" );
   } );
 
-  it ( 'percolate reads through the pipeline with empty handlers', function(done) {
+  it ( 'should percolate reads through the pipeline with empty handlers', function(done) {
     var c = new Channel();
 
     c.pipeline.addLast( 'a', {

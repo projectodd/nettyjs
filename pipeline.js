@@ -5,7 +5,11 @@ function Pipeline() {
 }
 
 Pipeline.prototype.addLast = function(name, handler) {
-  this._handlers.push({ name: name, handler: handler})
+  this._handlers.push({ name: name, handler: handler});
+}
+
+Pipeline.prototype.addFirst = function(name, handler) {
+  this._handlers.shift({ name: name, handler: handler});
 }
 
 Pipeline.prototype.fireChannelRead = function(message) {

@@ -5,6 +5,10 @@ function HandlerContext(handlers, index) {
 }
 
 HandlerContext.prototype.invokeChannelRead = function(message) {
+  if ( this._index > this._handlers.length - 1 ) {
+    console.log( "reached end of pipeline" );
+    return;
+  }
   var currentHandler = this._handlers[ this._index ];
   if ( currentHandler ) {
     if ( currentHandler.handler.channelRead ) {
@@ -35,5 +39,11 @@ HandlerContext.prototype.write = function(message) {
   var nextContext = new HandlerContext( this._handlers, this._index - 1 );
   nextContext.invokeWrite( message );
 }
+
+Object.defineProperty( HandlerContext.prototype, 'name', {
+  get: function() {
+    return this._handlers[ this._index ].name;
+  }
+})
 
 module.exports = HandlerContext;
