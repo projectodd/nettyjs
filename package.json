@@ -13,6 +13,7 @@
   "author": "Bob McWhirter <bob@mcwhirter.org> (http://github.com/bobmcwhirter)",
   "license": "AL2",
   "devDependencies": {
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "should": "^7.0.1"
   }
 }
